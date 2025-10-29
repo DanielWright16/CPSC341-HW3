@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import MovieList from './components/MovieList';
+import Pagination from './components/Pagination';
+import { fetchMovies } from './api';
+
 
 function App() {
+
+  const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState('');
+  const [sortBy, setSortBy] = useState('popularity.desc');
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  useEffect(() => {
+    const loadMovies = async () => {
+      const { results, total_pages } = await fetchMovies({ query, sortBy, page });
+      setMovies(results);
+      setTotalPages(total_pages);
+    };
+    loadMovies();
+  }, [query, sortBy, page]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+     <SearchBar
+        query={query}
+        sortBy={sortBy}
+        onQueryChange={setQuery}
+        onSortChange={setSortBy}
+        resetPage={() => setPage(1)}
+      />
+      <MovieList movies={movies} />
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        onPageChange={setPage}
+      /> 
+    </>
   );
 }
 
