@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/CPSC341-HW3/static/css/main.cc2fae3f.css",
-    "main.js": "/CPSC341-HW3/static/js/main.302ab911.js",
-    "index.html": "/CPSC341-HW3/index.html",
-    "main.cc2fae3f.css.map": "/CPSC341-HW3/static/css/main.cc2fae3f.css.map",
-    "main.302ab911.js.map": "/CPSC341-HW3/static/js/main.302ab911.js.map"
+    "main.css": "https://danielwright16.github.io/CPSC341-HW3/static/css/main.cc2fae3f.css",
+    "main.js": "https://danielwright16.github.io/CPSC341-HW3/static/js/main.302ab911.js",
+    "index.html": "https://danielwright16.github.io/CPSC341-HW3/index.html",
+    "main.cc2fae3f.css.map": "https://danielwright16.github.io/CPSC341-HW3/static/css/main.cc2fae3f.css.map",
+    "main.302ab911.js.map": "https://danielwright16.github.io/CPSC341-HW3/static/js/main.302ab911.js.map"
   },
   "entrypoints": [
     "static/css/main.cc2fae3f.css",
